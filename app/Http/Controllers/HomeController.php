@@ -23,11 +23,18 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-       if( $request->user()->hasRole('employee')) {
-        return redirect('/employer');
-       }
+       // if( $request->user()->hasRole('employee')) {
+       //  return redirect('/employer');
+       // }
 
-        $request->user()->authorizeRoles(['employee', 'manager']);
+       //  $request->user()->authorizeRoles(['employee', 'manager']);
+       //  return view('home');
+
         return view('home');
+    }
+
+    public function employer(Request $request)
+    {
+        return 'Hello Employee';
     }
 }
